@@ -1,0 +1,493 @@
+@import "variables";
+@import "mixins";
+@import 'placeholder';
+
+html * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, h2, h3{
+    font-family: $fontTitle;
+}
+
+p{
+    font-family: $fontParagraph;
+}
+
+body{
+    background-color: $background;
+    min-height: 100%;
+}
+
+#home{
+    align-items: center;
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(../images/Hero.jpg);
+    background-size: cover;
+    background-position: center;
+    color: $textColor;
+    display: flex;
+    font-family: $fontTitle;
+    font-size: 2.5rem;
+    justify-content: center;
+    padding: 30px;
+    text-align: center;
+    font-style: italic;
+    height: 90vh;
+
+    h1{
+        font-weight: 400;
+    }
+
+    @media screen and (max-width: $tablet) {
+        height: 80vh;
+    }
+  
+}
+
+nav{
+
+    background-color: $backgroundNav;
+    display: flex;
+    font-family: $fontParagraph;
+    justify-content: space-between;
+    height: 100px;
+    padding: 30px;
+    width: 100%;
+
+    .logo{
+        height: 40px;
+        width: 60px;
+    }
+}
+
+.menu{
+    display: none;
+
+    @media screen and (max-width: 767px) {
+        display: block;    
+    }
+}
+
+#link-list{
+    display: none;
+    justify-content: space-evenly;
+    float: right;
+
+    
+    li{
+        font-family: $fontParagraph;
+        font-weight: 600;
+        font-size: 18px;
+        padding: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        border-radius: 10px;
+        
+        a{
+            color: $textColor;
+            text-decoration: none;
+            vertical-align: middle;
+        }
+        
+    }
+
+    li:hover{
+        background-color: $textColor;
+        transition: 2s;
+    }
+
+    li:hover a{
+        transition: 0.5s;
+        color: $background;
+    }
+
+    @media screen and (min-width: $tablet) {
+        display: flex;
+    }
+}
+
+#about{
+    @extend %backgroundWhite;
+    text-align: center;
+    padding: 60px 0;
+
+    h2{
+        font-style: italic;
+        font-size: 2rem;
+        
+        @media screen and (min-width: $laptop) {
+            margin: 2rem 0;
+        }
+    }
+
+    .about-info{
+
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+
+        @media screen and (min-width: $laptop) {
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+
+        .info{
+
+            width: 60%;
+
+            @media screen and (min-width: $laptop) {
+                width: 50%;
+            }
+
+            h3{
+                margin-top: 2rem;
+
+                @media screen and (min-width: $laptop) {
+                    font-size: 24px;                    
+                }
+            }
+            
+            p{
+                line-height: 30px;
+                margin-bottom: 2rem;
+                margin-top: 2rem;
+                padding: 0 30px;
+
+                @media screen and (min-width: $laptop) {
+                    font-size: 20px;                    
+                }
+            }
+        }
+    }
+
+    .my-photo{
+        border-radius: 50%;
+        height: 200px;
+        width: 200px;
+
+        @media screen and (min-width: $laptop) {
+            height: 300px;
+            width: 300px;               
+        }
+    }
+}
+
+.couple-quote{
+    align-items: center;
+    background-image: url(../images/couple.jpg);
+    background-size: cover;
+    background-position: center;
+    color: $textColor;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80vh;
+
+    p{
+        padding: 0 30px;
+    }
+}
+
+#services{
+    @extend %backgroundDark;
+    text-align: center;
+    padding: 60px;
+
+    h2{
+        margin-top: 2rem;
+        font-style: italic;
+    }
+
+    .services-info{
+        align-items: center;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        margin-top: 3rem;
+
+    }
+
+    .service{
+        transition: 1s;
+        background-color: $backgroundSection;
+        border-radius: 15px;
+        margin: 10px;
+        min-width: 400px;
+        padding: 30px;
+
+        h3{
+            line-break:strict;
+            font-style: italic;
+            transition: 0.5s;
+        }
+
+        .icon{
+            max-width: 200px;
+        }
+
+        
+    }
+
+    .service:hover{
+        background-color: $backgroundAbout;
+    }
+
+    .service:hover h3{
+        color: $background
+    }
+}
+
+#portfolio{
+    @extend %backgroundWhite;
+    padding: 70px 0;
+
+    h2{
+        font-style: italic;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .gallery-container{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-auto-rows: 400px;
+        gap: 10px;
+        padding: 20px;
+
+        @media screen and (min-width: $laptop) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .gallery-item:nth-child(2), .gallery-item:nth-child(3){
+            grid-row-start: span 2;
+            @media screen and (min-width: $laptop) {
+                grid-row-start: span 2;
+            }
+        }
+        
+        .gallery-img{
+            border-radius: 10px;
+            width: 100%;
+            height: 100%;
+            transition: 1s;
+            object-fit: cover;
+        }
+
+        .gallery-img:hover{
+            transform: scale(1.1);
+            z-index: 2;
+        }
+    }
+
+    .social-media{
+
+        h4{
+            text-align: center;
+            font-size: 22px;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .social-div{
+            margin-top: 2rem;
+            margin: 0 auto;
+            align-items: center;
+            display: flex;
+            justify-content: space-evenly;
+            width: 50%;
+
+            @media screen and (min-width: $tablet) {
+                width: 40%;
+            }
+
+            @media screen and (min-width: $laptop) {
+                width: 30%;
+            }
+
+            .social-links:hover{
+                transition: 0.5s;
+                transform: scale(1.3);
+            }
+        }
+    }
+}
+
+
+#contact{
+    @extend %backgroundDark;
+    height: 100%;
+    background-image: url(../images/gallery/1.jpg);
+
+    form{
+        
+        max-width: 550px;
+        margin: 0 auto;
+        padding: 40px;
+        border-radius: 3px;
+        width: 90%;
+
+        h2{
+            text-align: center;
+        }
+
+        label{
+            display: block;
+            margin: 20px 0;
+        }
+
+        input, textarea{
+            border: none;
+            border-bottom: 1px solid $backgroundSection;
+            border-radius: 5px;
+            outline: none;
+            padding: 10px;
+            resize: none;
+            width: 100%;
+        }
+
+        #submit{
+            width: 90%;
+            max-width: 100px;
+        }
+    }
+}
+
+// body {
+//     @include addColor($textColor, $bgMain);
+// }
+
+// header {
+//     background-color: $navBg;
+//     font-family: $fontParagraph;
+//     position: fixed;
+//     width: 100%;
+
+//     nav {
+//         img {
+//             height: 60px;
+//             margin: 15px 0 15px 15px;
+//         }
+
+//         #link-list {
+//             float: right;
+//             font-size: 1rem;
+//             margin-right: 20px;
+//             z-index: 1;
+
+//             @media screen and (max-width: $laptop) {
+//                 font-size: 0.9rem;
+//             }
+
+//             @media screen and (max-width: $tablet) {
+//                 font-size: 20px;
+//                 font-weight: 700;
+//                 position: fixed;
+//                 justify-content: center;
+//                 display: flex;
+//                 flex-direction: column;
+//                 width: 100%;
+//                 height: 100vh;
+//                 background-color: $navBg;
+//                 top: 90px;
+//                 left: -100%;
+//                 transition: all 0.5s;
+//                 text-align: center;
+//             }
+
+//             li {
+//                 display: inline-block;
+//                 line-height: 90px;
+//                 margin: 0 5px;
+//                 list-style: none;
+
+//                 @media screen and (max-width: $tablet) {
+//                     display: block;
+//                 }
+
+//                 a {
+//                     border-radius: 3px;
+//                     color: $textColor;
+//                     font-weight: 700;
+//                     text-transform: uppercase;
+//                     padding: 7px 13px;
+//                     text-decoration: none;
+//                 }
+
+//                 a:hover {
+//                     background-color: $linkHover;
+//                     transition: 0.5s;
+//                 }
+//             }
+//         }
+
+//         #link-list-collapse {
+//             @extend #link-list;
+//             left: 0;
+//         }
+
+//         #check-btn {
+//             color: $textColor;
+//             cursor: pointer;
+//             display: none;
+//             font-size: 28px;
+//             float: right;
+//             line-height: 90px;
+
+//             @media screen and (max-width: $tablet) {
+//                 display: block;
+//                 margin-right: 1rem;
+//             }
+//         }
+
+//         #check {
+//             display: none;
+//         }
+//     }
+//     .active {
+//         background-color: $linkHover;
+//         transition: 0.5s;
+//     }
+// }
+
+// main {
+//     padding-top: 90px;
+// }
+
+// #home {
+//     @include flex(center, center, column);
+//     height: 90vh;
+//     justify-content: center;
+//     background: linear-gradient(hsla(0, 0%, 5%, 0.5), hsla(223, 6%, 23%, 0.5)), url(../images/Hero.jpg);
+//     background-position: center;
+//     background-size: cover;
+//     background-repeat: no-repeat;
+
+//     @media screen and(max-width: 768px) {
+//         height: 80vh;
+//     }
+
+//     h1 {
+//         font-family: $fontTitle;
+//         font-size: 70px;
+//         font-weight: 300;
+//         font-style: italic;
+//         text-align: center;
+//         width: 60%;
+
+//         @media screen and (max-width: 768px) {
+//             font-size: 64px;
+//             width: 80%;
+//         }
+
+//         @media screen and (max-width: 480px) {
+//             font-size: 40px;
+//             width: 90%;
+//         }
+//     }
+// }
+

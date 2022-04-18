@@ -1,0 +1,13 @@
+@import 'variables';
+
+%backgroundDark{
+    background-color: $background;
+    color: $textColor;
+    font-size: 1rem;
+}
+
+%backgroundWhite{
+    background-color: $textColor;
+    color: $background;
+    font-size: 1rem;
+}

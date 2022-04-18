@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://kit.fontawesome.com/d162a7af77.js" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="./sass/index.css">
+    <title>Estudio de fotografia</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <img src="./images/placeholder.png" alt="logo" class="logo">
+            <img src="./images/icons/hamburger-menu.png" alt="hamburger-menu" class="menu">
+            <ul id="link-list">
+                <li><a href="#home" class="link home">Home</a></li>
+                <li><a href="#about" class="link about">Acerca de mi</a></li>
+                <li><a href="#services" class="link services">Servicios</a></li>
+                <li><a href="#portfolio" class="link portfolio">Mi trabajo</a></li>
+                <li><a href="#contact" class="link contact">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <h1>Preservando los momentos más felices de tu vida</h1>
+            <div class="social-media">
+                </ul>
+            </div>
+        </section>
+        <section id="about">
+            <h2>Mi pasión es contar historias</h2>
+            <div class="about-info">
+                <div class="info">
+                    <h3>Un poco acerca de mi</h3>
+                    <p>
+                        Soy un fotografo profesional con más de 8 años de experiencia que trabaja en en norte de Sonora y el
+                        sur de Arizona.
+                    </p>
+                </div>
+                <div class="photo">
+                    <img src="./images/photograph.jpg" alt="picture of me" class="my-photo">
+                </div>
+            </div>
+        </section>
+        <section class="couple-quote">
+            <p>"La mejor desición que pudimos hacer al planear nuestra boda."</p>
+            <p>- Sulema y Carlos</p>
+        </section>
+        <section id="services">
+            <h2>Mis servicios</h2>
+            <div class="services-info">
+                <div class="service">
+                    <img src="./images/icons/camera.png" alt="camera" class="icon">
+                    <h3>Fotografía profesional</h3>
+                </div>
+                <div class="service">
+                    <img src="./images/icons/computer.png" alt="computer" class="icon">
+                    <h3>Retoque Digital</h3>
+                </div>
+                <div class="service">
+                    <img src="./images/icons/images.png" alt="imagenes" class="icon">
+                    <h3>Creación de imágenes compuestas</h3>
+                </div>
+                <div class="service">
+                    <img src="./images/icons/album.png" alt="album" class="icon">
+                    <h3>Creación de albumes</h3>
+                </div>
+            </div>
+        </section>
+        <section id="portfolio">
+            <h2>Un poco de mi trabajo</h2>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="./images/gallery/1.jpg" alt="" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/gallery/2.jpg" alt="" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/gallery/3.jpg" alt="" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/gallery/4.jpg" alt="" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/gallery/5.jpg" alt="" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/gallery/5.jpg" alt="" class="gallery-img">
+                </div>
+            </div>
+            <div class="social-media">
+                <h4>Sígueme en mis redes sociales</h4>
+                <div class="social-div">
+                    <div class="social-links">
+                        <a href="www.facebook.com"><img src="./images/icons/icons8-facebook-48.png" alt="facebook logo"></a>
+                    </div>
+                    <div class="social-links">
+                        <a href="www.instagram.com">  <img src="./images/icons/icons8-instagram-48.png" alt="instagram logo"></a>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://twitter.com/home" target="_blank"><img src="./images/icons/icons8-twitter-48.png" alt="twitter logo"></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact">
+            <form>
+                <h2>Contáctame</h2>
+
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" placeholder="Your name">
+                <small class="error"></small>
+
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" placeholder="Your email">
+                <small class="error"></small>
+
+                <label for="message">Message:</label>
+                <textarea type="text" name="message" id="message" placeholder="Your message" rows="6"> </textarea>
+                <small class="error"></small>
+
+                <div class="btn-div">
+                    <input type="submit" id="submit" value="Enviar">
+                    <p id="success"></p>
+                </div>
+
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>Leonardo Loureiro &reg; 2022</p>
+    </footer>
+    <!-- <script src="./index.js"></script> -->
+</body>
+
+</html>
