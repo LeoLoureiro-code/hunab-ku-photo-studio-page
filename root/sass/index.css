@@ -12,6 +12,10 @@
   font-size: 1rem;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html * {
   margin: 0;
   padding: 0;
@@ -32,12 +36,16 @@ body {
   min-height: 100%;
 }
 
+body .fade {
+  opacity: 0;
+  -webkit-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out;
+}
+
 #home {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.1))), url(../images/Hero.jpg);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(../images/Hero.jpg);
   background-size: cover;
   background-position: center;
   color: #dadddd;
@@ -56,7 +64,16 @@ body {
 }
 
 #home h1 {
+  font-size: 5rem;
   font-weight: 400;
+  width: 90%;
+  max-width: 1000px;
+}
+
+@media screen and (max-width: 768px) {
+  #home h1 {
+    font-size: 3rem;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -76,6 +93,7 @@ nav {
           justify-content: space-between;
   height: 100px;
   padding: 30px;
+  position: fixed;
   width: 100%;
 }
 
@@ -118,6 +136,7 @@ nav .logo {
       -ms-flex-align: center;
           align-items: center;
   border-radius: 10px;
+  position: relative;
 }
 
 #link-list li a {
@@ -126,16 +145,28 @@ nav .logo {
   vertical-align: middle;
 }
 
-#link-list li:hover {
+#link-list li a::after {
+  content: '';
+  width: 100%;
+  height: 1px;
   background-color: #dadddd;
-  -webkit-transition: 2s;
-  transition: 2s;
+  border-radius: 4px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-transition: -webkit-transform .50s ease;
+  transition: -webkit-transform .50s ease;
+  transition: transform .50s ease;
+  transition: transform .50s ease, -webkit-transform .50s ease;
 }
 
-#link-list li:hover a {
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  color: #0d0d0d;
+#link-list li a:hover::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
 }
 
 @media screen and (min-width: 768px) {
@@ -176,6 +207,9 @@ nav .logo {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  max-width: 1300px;
+  margin: 0 auto;
+  width: 90%;
 }
 
 @media screen and (min-width: 1024px) {
@@ -225,14 +259,14 @@ nav .logo {
 
 #about .my-photo {
   border-radius: 50%;
-  height: 200px;
-  width: 200px;
+  height: 300px;
+  width: 300px;
 }
 
 @media screen and (min-width: 1024px) {
   #about .my-photo {
-    height: 300px;
-    width: 300px;
+    height: 400px;
+    width: 400px;
   }
 }
 
@@ -278,9 +312,8 @@ nav .logo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin-top: 3rem;
@@ -292,11 +325,14 @@ nav .logo {
   background-color: #343c3b;
   border-radius: 15px;
   margin: 10px;
-  min-width: 400px;
+  min-width: 200px;
+  width: 350px;
   padding: 30px;
 }
 
 #services .service h3 {
+  word-break: keep-all;
+  font-size: 1.3rem;
   line-break: strict;
   font-style: italic;
   -webkit-transition: 0.5s;
@@ -304,7 +340,7 @@ nav .logo {
 }
 
 #services .service .icon {
-  max-width: 200px;
+  max-width: 150px;
 }
 
 #services .service:hover {
@@ -330,7 +366,7 @@ nav .logo {
   display: grid;
   -ms-grid-columns: (1fr)[1];
       grid-template-columns: repeat(1, 1fr);
-  grid-auto-rows: 400px;
+  grid-auto-rows: 450px;
   gap: 10px;
   padding: 20px;
 }
@@ -342,6 +378,18 @@ nav .logo {
   }
 }
 
+#portfolio .gallery-container .gallery-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 #portfolio .gallery-container .gallery-item:nth-child(2), #portfolio .gallery-container .gallery-item:nth-child(3) {
   -ms-grid-row: span 2;
       grid-row-start: span 2;
@@ -349,8 +397,8 @@ nav .logo {
 
 @media screen and (min-width: 1024px) {
   #portfolio .gallery-container .gallery-item:nth-child(2), #portfolio .gallery-container .gallery-item:nth-child(3) {
-    -ms-grid-row: span 2;
-        grid-row-start: span 2;
+    -ms-grid-row: span 3;
+        grid-row-start: span 3;
   }
 }
 
@@ -362,12 +410,6 @@ nav .logo {
   transition: 1s;
   -o-object-fit: cover;
      object-fit: cover;
-}
-
-#portfolio .gallery-container .gallery-img:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-  z-index: 2;
 }
 
 #portfolio .social-media h4 {
@@ -404,16 +446,8 @@ nav .logo {
   }
 }
 
-#portfolio .social-media .social-div .social-links:hover {
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  -webkit-transform: scale(1.3);
-          transform: scale(1.3);
-}
-
 #contact {
   height: 100%;
-  background-image: url(../images/gallery/1.jpg);
 }
 
 #contact form {
@@ -444,7 +478,17 @@ nav .logo {
 }
 
 #contact form #submit {
+  color: #0d0d0d;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-top: 1rem;
   width: 90%;
   max-width: 100px;
+}
+
+#contact form #submit:hover {
+  -webkit-transition: 1s ease-out;
+  transition: 1s ease-out;
 }
 /*# sourceMappingURL=index.css.map */
